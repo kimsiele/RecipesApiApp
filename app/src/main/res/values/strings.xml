@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Recipes Api</string>
+    <string name="recipe_image_description">Recipe description</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="calories_text">Calories</string>
+    <string name="hint_nutrientsl">300 kcal/g</string>
+    <string name="fats_text">Fats</string>
+    <string name="carbohydrates_text">Carbohydrates</string>
+    <string name="proteins_text">Proteins</string>
+    <string name="difficulty_text">Difficulty:</string>
+    <string name="time_text">Time:</string>
+    <string name="time_hint">20min</string>
+    <string name="difficuty_hint">3</string>
+</resources>

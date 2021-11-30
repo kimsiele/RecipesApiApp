@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.RecipeDetails">
+
+
+        <ImageView
+            android:id="@+id/currentRecipeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/currentRecipeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/currentRecipeHeadline"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@+id/currentRecipeImage"
+            app:layout_constraintTop_toBottomOf="@+id/currentRecipeImage"
+            tools:text="RecipeName" />
+
+        <TextView
+            android:id="@+id/currentRecipeHeadline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/currentRecipeName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentRecipeName"
+            tools:text="header line" />
+
+        <TextView
+            android:id="@+id/currentRecipeDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textViewDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+        <TextView
+            android:id="@+id/textViewCalorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/calories_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toStartOf="@+id/textViewFats"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentRecipeName" />
+
+        <TextView
+            android:id="@+id/calorieValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hint_nutrientsl"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCalorie"
+            app:layout_constraintStart_toStartOf="@+id/textViewCalorie"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCalorie" />
+
+        <TextView
+            android:id="@+id/textViewFats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fats_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCarbos"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCalorie"
+            app:layout_constraintTop_toTopOf="@+id/textViewCalorie" />
+
+        <TextView
+            android:id="@+id/textViewCarbos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carbohydrates_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toStartOf="@+id/textViewProteins"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewFats"
+            app:layout_constraintTop_toTopOf="@+id/textViewFats" />
+
+        <TextView
+            android:id="@+id/textViewProteins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proteins_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewCarbos"
+            app:layout_constraintTop_toTopOf="@+id/textViewCarbos" />
+
+        <TextView
+            android:id="@+id/fatsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nutrientsl"
+            app:layout_constraintEnd_toEndOf="@+id/textViewFats"
+            app:layout_constraintStart_toStartOf="@+id/textViewFats"
+            app:layout_constraintTop_toTopOf="@+id/calorieValue" />
+
+        <TextView
+            android:id="@+id/carbosValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nutrientsl"
+            app:layout_constraintEnd_toEndOf="@+id/textViewCarbos"
+            app:layout_constraintStart_toStartOf="@+id/textViewCarbos"
+            app:layout_constraintTop_toTopOf="@+id/fatsValue" />
+
+        <TextView
+            android:id="@+id/proteinsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nutrientsl"
+            app:layout_constraintEnd_toEndOf="@+id/textViewProteins"
+            app:layout_constraintStart_toStartOf="@+id/textViewProteins"
+            app:layout_constraintTop_toTopOf="@+id/carbosValue" />
+
+        <TextView
+            android:id="@+id/textViewDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/difficulty_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toStartOf="@+id/calorieValue"
+            app:layout_constraintTop_toBottomOf="@+id/calorieValue" />
+
+        <TextView
+            android:id="@+id/difficultyValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="@string/difficuty_hint"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewDifficulty"
+            app:layout_constraintStart_toEndOf="@+id/textViewDifficulty"
+            app:layout_constraintTop_toTopOf="@+id/textViewDifficulty" />
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/time_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toEndOf="@+id/currentRecipeName"
+            app:layout_constraintTop_toBottomOf="@+id/carbosValue" />
+
+        <TextView
+            android:id="@+id/timeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="@string/time_hint"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewTime"
+            app:layout_constraintStart_toEndOf="@+id/textViewTime"
+            app:layout_constraintTop_toTopOf="@+id/textViewTime" />
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/currentRecipeName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+</layout>

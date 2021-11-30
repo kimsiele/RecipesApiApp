@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/recipeList">
+    <fragment
+        android:id="@+id/recipeList"
+        android:name="com.buildwithsiele.recipesapi.ui.RecipeList"
+        android:label="Recipes List" >
+        <action
+            android:id="@+id/action_recipeList_to_recipeDetails"
+            app:destination="@id/recipeDetails">
+
+            <argument
+                android:name="recipeId"
+                app:argType="string"/>
+            <argument
+                android:name="recipeName"
+                app:argType="string"/>
+            <argument
+                android:name="recipeImageUrl"
+                app:argType="string"/>
+            <argument
+            android:name="recipeHeadline"
+            app:argType="string"/>
+            <argument
+                android:name="recipeDescription"
+                app:argType="string"/>
+
+            <argument
+                android:name="recipeCalories"
+                app:argType="string"/>
+            <argument
+                android:name="recipeFats"
+                app:argType="string"/>
+            <argument
+                android:name="recipeProteins"
+                app:argType="string"/>
+            <argument
+                android:name="recipeCarbos"
+                app:argType="string"/>
+            <argument
+                android:name="recipeDifficulty"
+                app:argType="integer"/>
+            <argument
+                android:name="recipeTime"
+                app:argType="string"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetails"
+        android:name="com.buildwithsiele.recipesapi.ui.RecipeDetails"
+        android:label="Recipe Details" >
+        <action
+            android:id="@+id/action_recipeDetails_to_recipeList"
+            app:destination="@id/recipeList" />
+    </fragment>
+</navigation>
