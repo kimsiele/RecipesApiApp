@@ -39,11 +39,6 @@ class RecipeDetails : Fragment() {
 
         getCurrentRecipe()
 
-        /* Picasso.get().load(argument.getString("recipeImageUrl")).into(binding.currentRecipeImage)
-         binding.currentRecipeHeadline.text = argument.getString("recipeHeadline")
-         binding.currentRecipeName.text = argument.getString("recipeName")
-         binding.currentRecipeDescription.text = argument.getString("recipeDescription")*/
-
         return binding.root
     }
 
@@ -51,8 +46,8 @@ class RecipeDetails : Fragment() {
         //get Recipe by id and update the fields accordingly
         // val recipe = viewModel.getRecipe(argument.getString("recipeId")!!)
         Picasso.get().load(argument.getString("recipeImageUrl")).into(binding.currentRecipeImage)
-        binding.currentRecipeHeadline.text = argument.getString("recipeHeadline")
-        binding.currentRecipeName.text = argument.getString("recipeName")
+        binding.currentRecipeName.text =
+            "${argument.getString("recipeName")}${argument.getString("recipeHeadline")}"
         binding.currentRecipeDescription.text = argument.getString("recipeDescription")
         binding.calorieValue.text = argument.getString("recipeCalories")
         binding.carbosValue.text = argument.getString("recipeCarbos")
