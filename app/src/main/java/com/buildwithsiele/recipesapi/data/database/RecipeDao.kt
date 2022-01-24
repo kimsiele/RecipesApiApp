@@ -10,6 +10,7 @@ import com.buildwithsiele.recipesapi.data.model.Recipe
 interface RecipeDao {
     @Insert
     suspend fun insertRecipe(recipe: Recipe)
+
     @Query("SELECT * FROM recipes_database_table")
     fun getAllRecipes():LiveData<List<Recipe>>
 

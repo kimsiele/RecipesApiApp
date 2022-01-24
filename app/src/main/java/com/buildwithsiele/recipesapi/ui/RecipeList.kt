@@ -13,7 +13,7 @@ import com.buildwithsiele.recipesapi.adapters.RecipeAdapter
 import com.buildwithsiele.recipesapi.data.database.RecipeDatabase
 import com.buildwithsiele.recipesapi.databinding.RecipeListFragmentBinding
 import com.buildwithsiele.recipesapi.viewmodels.RecipeListViewModel
-import com.buildwithsiele.recipesapi.viewmodels.RepositoryViewModelFactory
+import com.buildwithsiele.recipesapi.viewmodels.RecipeViewModelFactory
 
 class RecipeList : Fragment() {
 
@@ -27,7 +27,7 @@ class RecipeList : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.recipe_list_fragment, container, false)
         val dataSource = RecipeDatabase.getInstance(requireContext()).recipeDao
-        val viewModelFactory = RepositoryViewModelFactory(dataSource)
+        val viewModelFactory = RecipeViewModelFactory(dataSource)
         viewModel = ViewModelProvider(this,viewModelFactory)[RecipeListViewModel::class.java]
 
         adapter = RecipeAdapter(RecipeAdapter.OnItemClicked{recipe->
