@@ -22,12 +22,11 @@ class RecipeListViewModel(dataSource: RecipeDao): ViewModel() {
             }catch (e:Exception){
                 Log.d("viewModel", "Error: ${e.message}")
             }
-
         }
     }
     val recipesList = recipeRepository.recipes
 }
-class RepositoryViewModelFactory(private val dataSource: RecipeDao):ViewModelProvider.Factory{
+class RecipeViewModelFactory(private val dataSource: RecipeDao):ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RecipeListViewModel::class.java)){
             return RecipeListViewModel(dataSource) as T
