@@ -5,9 +5,9 @@ Android kotlin app,consuming Resipe API to show a list of recipes via HTTP reque
 # Screenshots
 <div align="center">
 
-|<strong></strong>|<strong></strong>|
+|<strong>Recipe List</strong>|<strong>Recipe Details</strong>|
 |:--:|:--:|
-|<img src ='arts/recipe_list' width='300'/>|<img src='arts/recipe_details' width='300'/>|
+|<img src ='arts/recipe_list.png' width='300'/>|<img src='arts/recipe details.png' width='300'/>|
 
 </div>
 
