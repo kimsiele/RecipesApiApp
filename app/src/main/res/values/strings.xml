@@ -7,8 +7,9 @@
     <string name="fats_text">Fats</string>
     <string name="carbohydrates_text">Carbohydrates</string>
     <string name="proteins_text">Proteins</string>
-    <string name="difficulty_text">Difficulty:</string>
+    <string name="difficulty_text">Difficulty Level:</string>
     <string name="time_text">Time:</string>
     <string name="time_hint">20min</string>
     <string name="difficuty_hint">3</string>
+    <string name="tv_description_label">Description</string>
 </resources>

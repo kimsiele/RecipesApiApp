@@ -10,7 +10,7 @@ import com.buildwithsiele.recipesapi.R
 import com.buildwithsiele.recipesapi.data.model.Recipe
 import com.squareup.picasso.Picasso
 
-class RecipeAdapter(private val onItemclicked:OnItemClicked):RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+class RecipeAdapter(private val onItemClicked:OnItemClicked):RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
     var recipeList = listOf<Recipe>()
     set(value) {
         field = value
@@ -30,14 +30,14 @@ class RecipeAdapter(private val onItemclicked:OnItemClicked):RecyclerView.Adapte
         holder.recipeName.text = recipe.name
         Picasso.get().load(recipe.image).into(holder.recipeImage)
         holder.itemView.setOnClickListener {
-            onItemclicked.onClick(recipe)
+            onItemClicked.onClick(recipe)
         }
     }
 
     override fun getItemCount(): Int= recipeList.size
 
     class RecipeViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val recipeImage = itemView.findViewById<ImageView>(R.id.recipeImageView)
+        val recipeImage: ImageView = itemView.findViewById(R.id.recipeImageView)
         val recipeName:TextView = itemView.findViewById(R.id.recipeName)
 
     }

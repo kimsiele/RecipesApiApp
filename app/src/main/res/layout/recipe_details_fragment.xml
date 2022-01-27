@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="4:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,9 +33,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/currentRecipeImage"
             app:layout_constraintStart_toStartOf="@+id/currentRecipeImage"
             app:layout_constraintTop_toBottomOf="@+id/currentRecipeImage"
             tools:text="RecipeName" />
@@ -96,10 +99,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Description"
+            android:text="@string/tv_description_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintEnd_toEndOf="@+id/cardViewProteins"
-            app:layout_constraintStart_toStartOf="@+id/currentRecipeName"
+            app:layout_constraintStart_toStartOf="@+id/textViewDifficulty"
             app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty" />
 
         <androidx.cardview.widget.CardView
@@ -137,9 +140,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/textViewCalorie"
                     app:layout_constraintStart_toStartOf="@+id/textViewCalorie"
                     app:layout_constraintTop_toBottomOf="@+id/textViewCalorie" />
-
-                />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                  </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
