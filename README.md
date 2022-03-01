@@ -1,5 +1,5 @@
 # RecipesApi
-Simple Android kotlin app, consuming Recipe API to show a list of recipes via HTTP request. It's build with MVVM architecture pattern. Getting hands dirty on how to work with RESTful web Services in android.
+Simple Android kotlin app, consuming Recipe API to show a list of recipes via HTTP request. It's build with MVVM architecture pattern. Getting hands dirty on how to work with RESTful web Services in android. Built this to practice [Android Interviews: Take-home assessment tests questions](https://medium.com/@valentinerutto/android-interviews-take-home-assessment-tests-30223654c53a) by Valentine Ruttto medium post.
 
 
 # Screenshots
