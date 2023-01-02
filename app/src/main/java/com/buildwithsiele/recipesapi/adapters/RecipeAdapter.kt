@@ -1,5 +1,6 @@
 package com.buildwithsiele.recipesapi.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +26,12 @@ class RecipeAdapter(private val onItemClicked:OnItemClicked):RecyclerView.Adapte
         ))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipeList[position]
         holder.recipeName.text = recipe.name
-        Picasso.get().load(recipe.image).into(holder.recipeImage)
+        holder.time.text = "${recipe.time.filter { it.isDigit() }} Mins"
+        Picasso.get().load(recipe.image).placeholder(R.drawable.ic_placeholder_image) .into(holder.recipeImage)
         holder.itemView.setOnClickListener {
             onItemClicked.onClick(recipe)
         }
@@ -39,6 +42,7 @@ class RecipeAdapter(private val onItemClicked:OnItemClicked):RecyclerView.Adapte
     class RecipeViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val recipeImage: ImageView = itemView.findViewById(R.id.recipeImageView)
         val recipeName:TextView = itemView.findViewById(R.id.recipeName)
+        val time:TextView = itemView.findViewById(R.id.tvTime)
 
     }
     class OnItemClicked(val clickListener:(recipe:Recipe)->Unit){

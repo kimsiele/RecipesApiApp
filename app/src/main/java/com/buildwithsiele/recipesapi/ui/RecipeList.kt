@@ -25,7 +25,7 @@ class RecipeList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.recipe_list_fragment, container, false)
+        binding = RecipeListFragmentBinding.inflate(inflater, container, false)
         val dataSource = RecipeDatabase.getInstance(requireContext()).recipeDao
         val viewModelFactory = RecipeViewModelFactory(dataSource)
         viewModel = ViewModelProvider(this,viewModelFactory)[RecipeListViewModel::class.java]
@@ -49,12 +49,12 @@ class RecipeList : Fragment() {
 
         })
         binding.recipeRecyclerview.adapter = adapter
-        viewModel.recipesList.observe(viewLifecycleOwner,{
-            if (it.isNotEmpty()){
+        viewModel.recipesList.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
                 binding.loadingData.visibility = View.GONE
-            adapter.recipeList = it
-            }else  binding.loadingData.visibility = View.VISIBLE
-        })
+                adapter.recipeList = it
+            } else binding.loadingData.visibility = View.VISIBLE
+        }
 
         return binding.root
     }

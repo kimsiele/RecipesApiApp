@@ -20,15 +20,10 @@ class RecipeDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.recipe_details_fragment,
-            container,
-            false
-        )
+        binding = RecipeDetailsFragmentBinding.inflate(
+            inflater, container,  false )
         argument = requireArguments()
         getCurrentRecipe()
-
         return binding.root
     }
 
