@@ -47,7 +47,7 @@ jobs:
         env:
          GITHUB-TOKEN: ${{ secrets.GITHUB-TOKEN }}
         with:
-         upload_url: ${{ steps.create_release.outputs/upload_url }}
+         upload_url: ${{ steps.create_release.outputs.upload_url }}
          asset_path: app/build/outputs/apk/release/app_release.apk
          asset_name: ${{ github.event.repository.name }}.apk
          asset_content_type: application/zip
