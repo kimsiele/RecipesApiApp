@@ -37,7 +37,8 @@ jobs:
         uses: actions/create-release@v1
         with: 
          tag_name: ${{ github.run_number }}
-         release_name: Release v.${{ env.VERSION_NAME }} 
+         release_name: Release v1.0
+      #   ${{ env.VERSION_NAME }} 
          draft: false
          prerelease: false
         env:
@@ -49,7 +50,7 @@ jobs:
          GITHUB-TOKEN: ${{ secrets.GITHUB-TOKEN }}
         with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: apk/release/app-release.apk
+         asset_path: apk/app-release.apk
          asset_name: ${{ github.event.repository.name }}.apk
          asset_content_type: application/zip
          
