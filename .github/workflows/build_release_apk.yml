@@ -27,11 +27,15 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          
       - name: upload
         uses: actions/upload-artifact@v3
         with: 
          name: Build Artifacts
-         path: app/build/outputs/apk/release/app-release.apk
+         path: |
+              app/build/outputs/**/*.apk
+              ${{steps.signArtifact.outputs.signedReleaseFile}}
+         
       - name: Release
         id: create_release
         uses: actions/create-release@v1
@@ -50,7 +54,8 @@ jobs:
          GITHUB-TOKEN: ${{ secrets.GITHUB-TOKEN }}
         with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: ${{ steps.sign.outputs.signedReleaseFile }}
+         asset_path: ${{ env.ARTIFACT_PATHNAME_APK }}
+#         ${{ steps.sign.outputs.signedReleaseFile }}
          asset_name: ${{ github.event.repository.name }}.apk
          asset_content_type: application/zip
          
