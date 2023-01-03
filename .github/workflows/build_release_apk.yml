@@ -27,6 +27,7 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       - name: upload
         uses: actions/upload-artifact@v2
-        with: Build Artifacts
-        path: app/build/outputs/
+        with: 
+         name: Build Artifacts
+         path: app/build/outputs/
 
