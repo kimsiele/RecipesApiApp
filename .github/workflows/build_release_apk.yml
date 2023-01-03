@@ -32,9 +32,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
          name: Build Artifacts
-         path: |
-              app/build/outputs/**/*.apk
-              ${{steps.signArtifact.outputs.signedReleaseFile}}
+         path: app/build/outputs/apk/release/app-release-signed.apk
+      
+      - name: Download APK from build
+        uses: actions/download-artifact@v1
+        with:
+          name: apk
          
       - name: Release
         id: create_release
@@ -54,10 +57,7 @@ jobs:
          GITHUB-TOKEN: ${{ secrets.GITHUB-TOKEN }}
         with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: |
-              app/build/outputs/**/*.apk
-              ${{ steps.signArtifact.outputs.signedReleaseFile }}
-#         ${{ steps.sign.outputs.signedReleaseFile }}
+         asset_path: apk/app-release-signed.apk
          asset_name: ${{ github.event.repository.name }}.apk
          asset_content_type: application/zip
          
