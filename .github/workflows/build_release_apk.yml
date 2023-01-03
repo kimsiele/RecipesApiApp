@@ -34,10 +34,10 @@ jobs:
          name: Build Artifacts
          path: app/build/outputs/apk/release/app-release-signed.apk
       
-      - name: Download APK from build
-        uses: actions/download-artifact@v1
-        with:
-          name: apk
+ #     - name: Download APK from build
+  #      uses: actions/download-artifact@v1
+   #     with:
+    #      name: apk
          
       - name: Release
         id: create_release
