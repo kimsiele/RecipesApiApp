@@ -21,7 +21,8 @@ jobs:
       - name: Make Gradlew Executable
         run: chmod +x ./gradlew
       - name: build prod
-        run: ./gradlew app:bundleRelease
+        run: ./gradlew assembleRelease
+#        app:bundleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -31,4 +32,23 @@ jobs:
         with: 
          name: Build Artifacts
          path: app/build/outputs/
-
+      - name: Release
+        id: create_release
+        uses: actions/create-release@v1
+        with: 
+         release_name: Release v.${{ env.VERSION_NAME }} 
+         draft: false
+         prerelease: false
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Release APK
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+         GITHUB-TOKEN: ${{ secrets.GITHUB-TOKEN }}
+        with:
+         upload_url: ${{ steps.create_release.outputs/upload_url }}
+         asset_path: app/build/outputs/apk/release/app_release.apk
+         asset_name: ${{ github.event.repository.name }}.apk
+         asset_content_type: application/zip
+         
