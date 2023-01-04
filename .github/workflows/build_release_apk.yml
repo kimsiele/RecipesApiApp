@@ -22,7 +22,6 @@ jobs:
         run: chmod +x ./gradlew
       - name: build prod
         run: ./gradlew assembleRelease
-#        app:bundleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -31,13 +30,13 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v3
         with: 
-         name: Build Artifacts
-         path: app/build/outputs/apk/release
+         name: app-release
+         path: app/build/outputs/apk/release/app-release.apk
       
- #     - name: Download APK from build
-  #      uses: actions/download-artifact@v1
-   #     with:
-    #      name: apk
+      - name: Download APK from build
+        uses: actions/download-artifact@v3
+        with:
+         name: apk
          
       - name: Release
         id: create_release
